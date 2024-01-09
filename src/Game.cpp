@@ -21,3 +21,23 @@ void Game::Run(int maxFrameRate)
         HandleRender();
     }
 }
+
+void Game::HandleEvent()
+{
+
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        if (event.type == SDL_QUIT)
+            isGameRunning = true;
+    }
+}
+
+void Game::HandleUpdate()
+{
+}
+
+void Game::HandleRender()
+{
+    SDL_RenderPresent(renderer);
+}

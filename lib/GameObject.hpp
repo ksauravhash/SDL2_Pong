@@ -1,3 +1,5 @@
+#include "Transform.hpp"
+#include "Collider.hpp"
 
 class GameObject
 {
@@ -10,7 +12,7 @@ public:
 
     virtual void Render() = 0;
 
-    virtual void GetCollider() = 0;
+    virtual Collider &GetCollider() = 0;
 
-    virtual void GetTransform() = 0;
+    virtual Transform &GetTransform() = 0;
 };

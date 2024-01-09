@@ -1,6 +1,6 @@
 #include "GameObject.hpp"
 
-class Paddle : public GameObject
+class Ball : public GameObject
 {
 public:
     void Update() override;
