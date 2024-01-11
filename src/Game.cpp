@@ -15,12 +15,23 @@ void Game::Init(int width, int height, int x, int y, const char *title)
 void Game::Run(int maxFrameRate)
 {
     this->maxFrameRate = maxFrameRate;
+    Uint64 minDelay = 1 / maxFrameRate;
+    Uint64 endCounter, elapsedTime;
+    Uint64 perfFreq = SDL_GetPerformanceFrequency();
+    Uint64 perfCounter = SDL_GetPerformanceCounter();
 
     while (isGameRunning)
     {
         HandleUpdate();
         HandleEvent();
         HandleRender();
+        endCounter = SDL_GetPerformanceCounter();
+        elapsedTime = endCounter - perfCounter;
+        perfCounter = endCounter;
+        if (minDelay > elapsedTime)
+        {
+            SDL_Delay(minDelay - elapsedTime);
+        }
     }
 }
 
