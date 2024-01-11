@@ -1,5 +1,9 @@
 #include "Ball.hpp"
 
+Ball::Ball()
+{
+}
+
 void Ball::Update()
 {
 }
@@ -8,12 +12,12 @@ void Ball::Render()
 {
 }
 
-Collider &Ball::GetCollider()
+std::unique_ptr<Collider> &Ball::GetCollider()
 {
-    // TODO: insert return statement here
+    return collider;
 }
 
-Transform &Ball::GetTransform()
+std::unique_ptr<Transform> &Ball::GetTransform()
 {
-    // TODO: insert return statement here
+    return transform;
 }

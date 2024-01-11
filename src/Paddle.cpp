@@ -8,10 +8,12 @@ void Paddle::Render()
 {
 }
 
-Collider &Paddle::GetCollider()
+std::unique_ptr<Collider> &Paddle::GetCollider()
 {
+    return collider;
 }
 
-Transform &Paddle::GetTransform()
+std::unique_ptr<Transform> &Paddle::GetTransform()
 {
+    return transform;
 }

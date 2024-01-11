@@ -1,3 +1,5 @@
+#pragma once
+
 #include "GameObject.hpp"
 
 class Paddle : public GameObject
@@ -7,11 +9,11 @@ public:
 
     void Render() override;
 
-    Collider &GetCollider() override;
+    std::unique_ptr<Collider> &GetCollider() override;
 
-    Transform &GetTransform() override;
+    std::unique_ptr<Transform> &GetTransform() override;
 
 private:
-    Transform *transform;
-    Collider *collider;
+    std::unique_ptr<Transform> transform;
+    std::unique_ptr<Collider> collider;
 };
