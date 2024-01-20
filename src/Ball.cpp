@@ -2,6 +2,8 @@
 
 Ball::Ball()
 {
+    collider = std::make_unique<Collider>();
+    transform = std::make_unique<Transform>();
 }
 
 void Ball::Update()

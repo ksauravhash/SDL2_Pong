@@ -7,6 +7,8 @@ class Ball : public GameObject
 public:
     Ball();
 
+    void Init() override;
+
     void Update() override;
 
     void Render() override;

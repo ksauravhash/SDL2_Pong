@@ -41,18 +41,18 @@ void Game::AddComponent(ComponentType type, std::string name)
     {
     case ComponentType::Ball:
     {
-        std::unique_ptr<Ball> ballObject = std::make_unique<Ball>();
+        const std::unique_ptr<GameObject> &ballObject = std::make_unique<Ball>();
         if (ballObject != nullptr)
         {
-            objectsMap.insert(std::make_pair(name, ballObject));
+            objectsMap.emplace(name, std::move(ballObject));
         }
     }
     case ComponentType::Paddle:
     {
-        std::unique_ptr<Paddle> ballObject = std::make_unique<Paddle>();
-        if (ballObject != nullptr)
+        const std::unique_ptr<Paddle> &paddleObject = std::make_unique<Paddle>();
+        if (paddleObject != nullptr)
         {
-            objectsMap.insert(std::make_pair(name, ballObject));
+            objectsMap.emplace(name, std::move(paddleObject));
         }
     }
     break;
