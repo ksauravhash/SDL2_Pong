@@ -6,6 +6,10 @@ Paddle::Paddle()
     transform = std::make_unique<Transform>();
 }
 
+void Paddle::Init()
+{
+}
+
 void Paddle::Update()
 {
 }
