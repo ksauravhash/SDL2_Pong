@@ -1,22 +1,12 @@
 #pragma once
 #include "ColliderGeometry.hpp"
 #include "RectCollider.hpp"
+#include "CircleCollider.hpp"
 
 class Collider
 {
 public:
-    Collider(ColliderShape shape)
-    {
-        switch (shape)
-        {
-        case ColliderShape::RECTANGE:
-            geomtry = new RectCollider();
-            break;
-
-        default:
-            break;
-        }
-    }
+    Collider(ColliderShape shape);
 
     bool isColliding(const Collider collider);
 
