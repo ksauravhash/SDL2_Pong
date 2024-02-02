@@ -38,6 +38,27 @@ bool Collider::isColliding(const Collider collider)
         if (distance < c1->GetR() + c2->GetR())
             colliding = true;
     }
+    else if (this->geomtry->GetColliderShape() == ColliderShape::CIRCLE && collider.geomtry->GetColliderShape() == ColliderShape::RECTANGE)
+    {
+        CircleCollider *c1 = (CircleCollider *)this->geomtry;
+        RectCollider *r2 = (RectCollider *)collider.geomtry;
+        int testX = c1->GetX();
+        int testY = c1->GetY();
+
+        // which edge is closest?
+        if (c1->GetX() < r2->GetX())
+            testX = r2->GetX(); // test left edge
+        else if (c1->GetX() > r2->GetX() + r2->GetWidth())
+            testX = r2->GetX() + r2->GetWidth(); // right edge
+        if (c1->GetY() < r2->GetY())
+            testY = r2->GetY(); // top edge
+        else if (c1->GetY() > r2->GetY() + r2->GetHeight())
+            testY = r2->GetY() + r2->GetHeight(); // bottom edge
+
+        double distance = sqrt(pow(testX - c1->GetX(), 2) + pow(testY - c1->GetY(), 2));
+        if (distance <= c1->GetR())
+            colliding = true;
+    }
 
     return colliding;
 }
