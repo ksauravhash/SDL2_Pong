@@ -2,8 +2,12 @@
 
 Ball::Ball()
 {
-    collider = std::make_unique<Collider>();
+    collider = std::make_unique<Collider>(ColliderShape::CIRCLE);
     transform = std::make_unique<Transform>();
+}
+
+void Ball::Init()
+{
 }
 
 void Ball::Update()

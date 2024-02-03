@@ -7,6 +7,8 @@ class Paddle : public GameObject
 public:
     Paddle();
 
+    void Init() override;
+
     void Update() override;
 
     void Render() override;
