@@ -11,7 +11,7 @@ public:
 
     void Update() override;
 
-    void Render() override;
+    void Render(SDL_Renderer *renderer) override;
 
     std::unique_ptr<Collider> &GetCollider() override;
 

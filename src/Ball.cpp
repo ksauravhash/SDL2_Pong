@@ -14,7 +14,7 @@ void Ball::Update()
 {
 }
 
-void Ball::Render()
+void Ball::Render(SDL_Renderer *renderer)
 {
 }
 

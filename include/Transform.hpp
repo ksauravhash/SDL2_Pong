@@ -25,6 +25,8 @@ public:
 
     int GetHeight();
 
+    SDL_Rect ToSDL_Rect();
+
 private:
     int x, y;
     int w, h;

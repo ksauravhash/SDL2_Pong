@@ -42,6 +42,7 @@ void Game::AddComponent(ComponentType type, std::string name)
     case ComponentType::Ball:
     {
         std::unique_ptr<GameObject> ballObject = std::make_unique<Ball>();
+        ballObject->Init();
         if (ballObject != nullptr)
         {
             objectsMap.emplace(name, std::move(ballObject));
@@ -50,9 +51,11 @@ void Game::AddComponent(ComponentType type, std::string name)
     case ComponentType::Paddle:
     {
         std::unique_ptr<Paddle> paddleObject = std::make_unique<Paddle>();
+        paddleObject->Init();
         if (paddleObject != nullptr)
         {
             objectsMap.emplace(name, std::move(paddleObject));
+            // paddleObject->Init();
         }
     }
     break;
@@ -74,7 +77,7 @@ void Game::HandleEvent()
     while (SDL_PollEvent(&event))
     {
         if (event.type == SDL_QUIT)
-            isGameRunning = true;
+            isGameRunning = false;
     }
 }
 
@@ -92,7 +95,7 @@ void Game::HandleRender()
     for (auto &object : objectsMap)
     {
         if (object.second != nullptr)
-            object.second->Render();
+            object.second->Render(renderer);
     }
     SDL_RenderPresent(renderer);
 }

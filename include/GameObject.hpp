@@ -11,7 +11,7 @@ public:
 
     virtual void Update() = 0;
 
-    virtual void Render() = 0;
+    virtual void Render(SDL_Renderer *renderer) = 0;
 
     virtual std::unique_ptr<Collider> &GetCollider() = 0;
 

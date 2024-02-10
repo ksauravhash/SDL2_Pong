@@ -52,3 +52,13 @@ int Transform::GetHeight()
 {
     return h;
 }
+
+SDL_Rect Transform::ToSDL_Rect()
+{
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
+    rect.h = h;
+    rect.w = w;
+    return rect;
+}
