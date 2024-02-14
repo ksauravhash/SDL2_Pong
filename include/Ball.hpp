@@ -20,4 +20,5 @@ public:
 private:
     std::unique_ptr<Transform> transform;
     std::unique_ptr<Collider> collider;
+    static SDL_Texture *ballTexure;
 };

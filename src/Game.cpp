@@ -55,7 +55,6 @@ void Game::AddComponent(ComponentType type, std::string name)
         if (paddleObject != nullptr)
         {
             objectsMap.emplace(name, std::move(paddleObject));
-            // paddleObject->Init();
         }
     }
     break;
